@@ -24,6 +24,9 @@ func main() {
     http.HandleFunc("/log", logHandler)
     http.HandleFunc("/abs", absHandler)
 
+	// Health check endpoint
+	http.HandleFunc("/health", healthCheckHandler)
+
     fmt.Println("Server listening on port 8080...")
     http.ListenAndServe(":8080", nil)
 }
@@ -238,4 +241,8 @@ func log(a int) (int, error) {
 
 func abs(a int) int {
     return int(math.Abs(float64(a)))
+}
+
+func healthCheckHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Server is up and running")
 }
