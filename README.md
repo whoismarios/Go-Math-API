@@ -181,3 +181,13 @@ http://localhost:8080
 **Response:**
 - 200 OK on success with result.
 - Example: Result: 5
+
+### 12. Health Check of the Server
+**URL** /health
+
+**Method** GET
+
+**Response**
+- 200 OK on success
+- Message: `Server is up and running`
+- 404 NOT FOUND when server is down
